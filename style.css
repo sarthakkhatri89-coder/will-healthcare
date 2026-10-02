@@ -2883,6 +2883,10 @@ ul {
     .footer-grid { grid-template-columns: 1fr; gap: 32px; }
     .mobile-sticky-cta { display: block; }
     .whatsapp-float { bottom: 80px; }
+
+    .segments-grid { grid-template-columns: 1fr; }
+    .segment-dual-blocks { grid-template-columns: 1fr; }
+    .franchise-benefits-ribbon { grid-template-columns: 1fr; gap: 14px; }
 }
 
 @media (max-width: 480px) {
@@ -2892,4 +2896,305 @@ ul {
     .flow-node-name { font-size: 0.95rem; }
     .eco-card { padding: 24px 20px; }
     .umbrella-matrix-wrapper { margin-top: 40px; margin-bottom: 40px; }
+    .segment-card { padding: 24px 20px; }
+    .segment-title { font-size: 1.35rem; }
+}
+
+/* ============ SPECIALIZED MANUFACTURING SEGMENTS STYLING ============ */
+.mfg-segments-section {
+    padding: 90px 0 60px;
+    background: #FFFFFF;
+    position: relative;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.segments-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    margin-top: 20px;
+}
+
+@media (max-width: 992px) {
+    .segments-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.segment-card {
+    background: #FFFFFF;
+    border: 1px solid var(--border-card);
+    border-radius: var(--radius-xl);
+    padding: 36px 32px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    overflow: hidden;
+}
+
+.segment-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 40px rgba(109, 40, 217, 0.09);
+    border-color: var(--border-hover);
+}
+
+.segment-card-featured {
+    border: 1.5px solid rgba(109, 40, 217, 0.3);
+    background: linear-gradient(180deg, #FFFFFF 0%, #FAF8FF 100%);
+    box-shadow: 0 8px 30px rgba(109, 40, 217, 0.07);
+}
+
+.segment-card-badge {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    padding: 5px 13px;
+    border-radius: var(--radius-full);
+    font-size: 0.74rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.badge-blue {
+    background: #EFF6FF;
+    color: #2563EB;
+    border: 1px solid #BFDBFE;
+}
+
+.badge-purple {
+    background: #F5F3FF;
+    color: #6D28D9;
+    border: 1px solid #DDD6FE;
+}
+
+.badge-teal {
+    background: #F0FDFA;
+    color: #0D9488;
+    border: 1px solid #99F6E4;
+}
+
+.badge-amber {
+    background: #FFFBEB;
+    color: #D97706;
+    border: 1px solid #FDE68A;
+}
+
+.segment-icon-wrap {
+    width: 58px;
+    height: 58px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.75rem;
+    margin-bottom: 20px;
+}
+
+.icon-blue { background: #EFF6FF; border: 1px solid #DBEAFE; }
+.icon-purple { background: #F5F3FF; border: 1px solid #EDE9FE; }
+.icon-teal { background: #F0FDFA; border: 1px solid #CCFBF1; }
+.icon-amber { background: #FFFBEB; border: 1px solid #FEF3C7; }
+
+.segment-title {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+}
+
+.segment-lead {
+    font-size: 0.94rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.segment-formats {
+    margin-bottom: 20px;
+}
+
+.segment-formats strong {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    font-weight: 700;
+}
+
+.format-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.format-chips .chip {
+    background: #F8FAFC;
+    color: #334155;
+    padding: 4px 10px;
+    border-radius: var(--radius-sm);
+    font-size: 0.78rem;
+    font-weight: 600;
+    border: 1px solid #E2E8F0;
+    transition: var(--transition-fast);
+}
+
+.format-chips .chip:hover {
+    background: #EDE9FE;
+    color: var(--purple-dark);
+    border-color: #C4B5FD;
+}
+
+.segment-specs {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+    margin-bottom: 24px;
+    flex-grow: 1;
+}
+
+.spec-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.87rem;
+    color: var(--text-secondary);
+    line-height: 1.55;
+}
+
+.spec-check {
+    color: #059669;
+    font-weight: 800;
+    font-size: 0.95rem;
+    line-height: 1.35;
+    flex-shrink: 0;
+}
+
+.segment-dual-blocks {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 20px;
+}
+
+.dual-block {
+    padding: 14px;
+    border-radius: var(--radius-md);
+    font-size: 0.84rem;
+    line-height: 1.5;
+}
+
+.dual-block-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+}
+
+.dual-block-head h4 {
+    font-size: 0.88rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.dual-icon {
+    font-size: 1.1rem;
+}
+
+.block-beta {
+    background: #FFF1F2;
+    border: 1px solid #FECDD3;
+    color: #9F1239;
+}
+
+.block-beta h4 {
+    color: #9F1239;
+}
+
+.block-nonbeta {
+    background: #F5F3FF;
+    border: 1px solid #DDD6FE;
+    color: #5B21B6;
+}
+
+.block-nonbeta h4 {
+    color: #5B21B6;
+}
+
+.btn-segment-quote {
+    margin-top: auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 12px 20px;
+    border-radius: var(--radius-md);
+    font-weight: 700;
+    font-size: 0.92rem;
+    background: #F8FAFC;
+    border: 1.5px solid var(--border-light);
+    color: var(--purple);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.btn-segment-quote:hover {
+    background: var(--gradient-primary);
+    color: #FFFFFF;
+    border-color: transparent;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(109, 40, 217, 0.25);
+}
+
+/* ============ FRANCHISE BENEFITS RIBBON ============ */
+.franchise-benefits-ribbon {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    background: linear-gradient(135deg, rgba(109, 40, 217, 0.04), rgba(8, 145, 178, 0.04));
+    border: 1.5px solid rgba(109, 40, 217, 0.15);
+    border-radius: var(--radius-lg);
+    padding: 22px 26px;
+    margin-bottom: 36px;
+}
+
+@media (max-width: 900px) {
+    .franchise-benefits-ribbon {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.f-benefit-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.f-benefit-icon {
+    font-size: 1.8rem;
+    flex-shrink: 0;
+}
+
+.f-benefit-item strong {
+    display: block;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.f-benefit-item span {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.mfg-infra-section {
+    padding: 80px 0;
+    background: var(--bg-surface);
+    border-bottom: 1px solid var(--border-light);
 }

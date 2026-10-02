@@ -366,7 +366,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ============ SCROLL REVEAL ANIMATIONS ============
     const revealElements = document.querySelectorAll(
-        '.eco-card, .why-card, .timeline-item, .product-card, .process-step, .mfg-dosage-card'
+        '.eco-card, .why-card, .timeline-item, .product-card, .process-step, .mfg-dosage-card, .segment-card, .dual-block, .f-benefit-item'
     );
 
     const revealObserver = new IntersectionObserver((entries) => {
@@ -458,6 +458,59 @@ document.addEventListener('DOMContentLoaded', () => {
                 }, 700);
             }
         });
+    });
+
+    // ============ THIRD-PARTY MANUFACTURING SEGMENT QUOTE BUTTONS ============
+    const segmentQuoteButtons = document.querySelectorAll('.btn-segment-quote');
+    segmentQuoteButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetDosage = btn.dataset.targetDosage || '';
+
+            // Ensure third-party form is active
+            const tpTab = document.querySelector('.form-tab[data-form="thirdparty"]');
+            if (tpTab) tpTab.click();
+
+            // Select dosage in dropdown if present
+            const dosageSelect = document.getElementById('tp-dosage');
+            if (dosageSelect && targetDosage) {
+                for (let option of dosageSelect.options) {
+                    if (option.value.toLowerCase().includes(targetDosage.toLowerCase().slice(0, 5)) ||
+                        targetDosage.toLowerCase().includes(option.value.toLowerCase().slice(0, 5))) {
+                        dosageSelect.value = option.value;
+                        break;
+                    }
+                }
+            }
+
+            // Prefill message hint if empty
+            const tpMsg = document.getElementById('tp-message');
+            if (tpMsg && !tpMsg.value) {
+                tpMsg.value = `Inquiring for Contract Manufacturing in: ${targetDosage}. Looking for pricing, MOQ, and formulation options.`;
+            }
+
+            // Scroll to contact
+            const contactSection = document.getElementById('contact');
+            if (contactSection) {
+                contactSection.scrollIntoView({ behavior: 'smooth' });
+                setTimeout(() => {
+                    const nameField = document.getElementById('tp-name');
+                    if (nameField) nameField.focus();
+                }, 700);
+            }
+        });
+    });
+
+    // Nav and Hero Mfg CTA buttons
+    const navQuoteBtn = document.getElementById('navQuoteBtn');
+    const heroMfgCta = document.getElementById('heroMfgCta');
+    [navQuoteBtn, heroMfgCta].forEach(btn => {
+        if (btn) {
+            btn.addEventListener('click', (e) => {
+                const tpTab = document.querySelector('.form-tab[data-form="thirdparty"]');
+                if (tpTab) tpTab.click();
+            });
+        }
     });
 
     // ============ CONTACT FORM TABS ============
