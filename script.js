@@ -54,12 +54,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // ============ HERO PARTICLES ============
+    // ============ FLOATING PHARMACEUTICAL ANIMATION (CAPSULES, TABLETS, OINTMENTS) ============
     const canvas = document.getElementById('heroParticles');
     if (canvas) {
         const ctx = canvas.getContext('2d');
-        let particles = [];
+        let elements = [];
         let animationId;
+        const types = ['capsule', 'tablet', 'ointment', 'droplet'];
 
         function resizeCanvas() {
             canvas.width = canvas.parentElement.offsetWidth;
@@ -69,72 +70,238 @@ document.addEventListener('DOMContentLoaded', () => {
         resizeCanvas();
         window.addEventListener('resize', resizeCanvas);
 
-        class Particle {
+        class PharmaParticle {
             constructor() {
-                this.reset();
+                this.reset(true);
             }
 
-            reset() {
+            reset(initial = false) {
+                this.type = types[Math.floor(Math.random() * types.length)];
                 this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-                this.size = Math.random() * 2 + 0.5;
-                this.speedX = (Math.random() - 0.5) * 0.5;
-                this.speedY = (Math.random() - 0.5) * 0.5;
-                this.opacity = Math.random() * 0.5 + 0.1;
-                this.hue = Math.random() > 0.5 ? 270 : 186; // Purple or Cyan
+                this.y = initial ? Math.random() * canvas.height : canvas.height + 70;
+                this.scale = Math.random() * 0.45 + 0.65; // High-visibility large float
+                this.speedY = -(Math.random() * 0.45 + 0.3); // Upward drift
+                this.speedX = (Math.random() - 0.5) * 0.35;
+                this.rotation = Math.random() * Math.PI * 2;
+                this.rotSpeed = (Math.random() - 0.5) * 0.008;
+                this.opacity = Math.random() * 0.35 + 0.28;
+                this.wave = Math.random() * Math.PI * 2;
+                this.waveSpeed = Math.random() * 0.02 + 0.008;
             }
 
             update() {
-                this.x += this.speedX;
+                this.wave += this.waveSpeed;
+                this.x += this.speedX + Math.sin(this.wave) * 0.35;
                 this.y += this.speedY;
+                this.rotation += this.rotSpeed;
 
-                if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
-                if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+                if (this.y < -90 || this.x < -90 || this.x > canvas.width + 90) {
+                    this.reset(false);
+                }
             }
 
             draw() {
+                ctx.save();
+                ctx.translate(this.x, this.y);
+                ctx.rotate(this.rotation);
+                ctx.scale(this.scale, this.scale);
+                ctx.globalAlpha = this.opacity;
+
+                if (this.type === 'capsule') {
+                    this.drawCapsule();
+                } else if (this.type === 'tablet') {
+                    this.drawTablet();
+                } else if (this.type === 'ointment') {
+                    this.drawOintment();
+                } else if (this.type === 'droplet') {
+                    this.drawDroplet();
+                }
+
+                ctx.restore();
+            }
+
+            drawCapsule() {
+                const w = 48;
+                const h = 24;
+                const r = h / 2;
+
+                ctx.shadowColor = 'rgba(109, 40, 217, 0.25)';
+                ctx.shadowBlur = 10;
+
+                // Left half (Purple)
                 ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fillStyle = `hsla(${this.hue}, 80%, 60%, ${this.opacity})`;
+                ctx.arc(-w/4, 0, r, Math.PI / 2, Math.PI * 1.5);
+                ctx.lineTo(0, -r);
+                ctx.lineTo(0, r);
+                ctx.closePath();
+                const gradLeft = ctx.createLinearGradient(-w/2, -r, 0, r);
+                gradLeft.addColorStop(0, '#7C3AED');
+                gradLeft.addColorStop(1, '#9333EA');
+                ctx.fillStyle = gradLeft;
+                ctx.fill();
+
+                // Right half (Cyan)
+                ctx.beginPath();
+                ctx.arc(w/4, 0, r, Math.PI * 1.5, Math.PI / 2);
+                ctx.lineTo(0, r);
+                ctx.lineTo(0, -r);
+                ctx.closePath();
+                const gradRight = ctx.createLinearGradient(0, -r, w/2, r);
+                gradRight.addColorStop(0, '#06B6D4');
+                gradRight.addColorStop(1, '#0891B2');
+                ctx.fillStyle = gradRight;
+                ctx.fill();
+
+                // Dividing seam
+                ctx.shadowBlur = 0;
+                ctx.strokeStyle = 'rgba(255, 255, 255, 0.65)';
+                ctx.lineWidth = 1.6;
+                ctx.beginPath();
+                ctx.moveTo(0, -r);
+                ctx.lineTo(0, r);
+                ctx.stroke();
+
+                // Gloss highlight
+                ctx.beginPath();
+                ctx.ellipse(-w/6, -r * 0.45, w/3.2, r * 0.22, 0, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(255, 255, 255, 0.45)';
+                ctx.fill();
+            }
+
+            drawTablet() {
+                const r = 22;
+                ctx.shadowColor = 'rgba(14, 116, 144, 0.2)';
+                ctx.shadowBlur = 10;
+
+                const gradPill = ctx.createRadialGradient(-r*0.3, -r*0.3, 2, 0, 0, r);
+                gradPill.addColorStop(0, '#FFFFFF');
+                gradPill.addColorStop(0.7, '#F1F5F9');
+                gradPill.addColorStop(1, '#CBD5E1');
+
+                ctx.beginPath();
+                ctx.arc(0, 0, r, 0, Math.PI * 2);
+                ctx.fillStyle = gradPill;
+                ctx.fill();
+
+                ctx.shadowBlur = 0;
+                ctx.strokeStyle = '#E2E8F0';
+                ctx.lineWidth = 1.5;
+                ctx.stroke();
+
+                // Debossed center score line
+                ctx.beginPath();
+                ctx.moveTo(0, -r * 0.72);
+                ctx.lineTo(0, r * 0.72);
+                ctx.strokeStyle = '#94A3B8';
+                ctx.lineWidth = 1.8;
+                ctx.stroke();
+
+                // Specular rim
+                ctx.beginPath();
+                ctx.arc(0, 0, r * 0.85, Math.PI * 1.1, Math.PI * 1.8);
+                ctx.strokeStyle = 'rgba(255, 255, 255, 0.8)';
+                ctx.lineWidth = 1.5;
+                ctx.stroke();
+            }
+
+            drawOintment() {
+                const len = 50;
+                const bodyW = 20;
+
+                ctx.shadowColor = 'rgba(109, 40, 217, 0.18)';
+                ctx.shadowBlur = 10;
+
+                // Tube body
+                ctx.beginPath();
+                ctx.moveTo(-len/2, -bodyW/2);
+                ctx.lineTo(len/4, -bodyW * 0.45);
+                ctx.lineTo(len/3, -bodyW * 0.25);
+                ctx.lineTo(len/3, bodyW * 0.25);
+                ctx.lineTo(len/4, bodyW * 0.45);
+                ctx.lineTo(-len/2, bodyW/2);
+                ctx.closePath();
+
+                const gradTube = ctx.createLinearGradient(-len/2, 0, len/4, 0);
+                gradTube.addColorStop(0, '#EDE9FE');
+                gradTube.addColorStop(0.5, '#FFFFFF');
+                gradTube.addColorStop(1, '#DDD6FE');
+                ctx.fillStyle = gradTube;
+                ctx.fill();
+                ctx.strokeStyle = '#C4B5FD';
+                ctx.lineWidth = 1.2;
+                ctx.stroke();
+
+                // Crimped tail (left)
+                ctx.beginPath();
+                ctx.rect(-len/2 - 4, -bodyW/2, 4, bodyW);
+                ctx.fillStyle = '#A78BFA';
+                ctx.fill();
+
+                // Brand color band on tube
+                ctx.beginPath();
+                ctx.rect(-len/5, -bodyW * 0.42, 10, bodyW * 0.84);
+                ctx.fillStyle = '#6D28D9';
+                ctx.fill();
+
+                // Cap (right)
+                ctx.shadowBlur = 0;
+                ctx.beginPath();
+                ctx.rect(len/3, -bodyW * 0.35, 10, bodyW * 0.7);
+                ctx.fillStyle = '#0891B2';
+                ctx.fill();
+                ctx.strokeStyle = '#06B6D4';
+                ctx.lineWidth = 1;
+                ctx.stroke();
+
+                // Specular highlight
+                ctx.beginPath();
+                ctx.moveTo(-len/3, -bodyW * 0.25);
+                ctx.lineTo(len/5, -bodyW * 0.2);
+                ctx.strokeStyle = 'rgba(255, 255, 255, 0.75)';
+                ctx.lineWidth = 1.5;
+                ctx.stroke();
+            }
+
+            drawDroplet() {
+                const r = 16;
+                ctx.shadowColor = 'rgba(6, 182, 212, 0.25)';
+                ctx.shadowBlur = 10;
+
+                ctx.beginPath();
+                ctx.moveTo(0, -r * 1.5);
+                ctx.bezierCurveTo(r * 1.2, -r * 0.3, r, r, 0, r);
+                ctx.bezierCurveTo(-r, r, -r * 1.2, -r * 0.3, 0, -r * 1.5);
+                ctx.closePath();
+
+                const gradDrop = ctx.createRadialGradient(-r*0.3, -r*0.3, 2, 0, 0, r);
+                gradDrop.addColorStop(0, '#E0F2FE');
+                gradDrop.addColorStop(0.5, '#38BDF8');
+                gradDrop.addColorStop(1, '#0284C7');
+                ctx.fillStyle = gradDrop;
+                ctx.fill();
+
+                ctx.shadowBlur = 0;
+                ctx.beginPath();
+                ctx.arc(-r * 0.3, -r * 0.4, r * 0.28, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(255, 255, 255, 0.7)';
                 ctx.fill();
             }
         }
 
-        // Create particles
-        const particleCount = Math.min(80, Math.floor((canvas.width * canvas.height) / 15000));
-        for (let i = 0; i < particleCount; i++) {
-            particles.push(new Particle());
-        }
-
-        function drawConnections() {
-            for (let i = 0; i < particles.length; i++) {
-                for (let j = i + 1; j < particles.length; j++) {
-                    const dx = particles[i].x - particles[j].x;
-                    const dy = particles[i].y - particles[j].y;
-                    const distance = Math.sqrt(dx * dx + dy * dy);
-
-                    if (distance < 120) {
-                        const opacity = (1 - distance / 120) * 0.15;
-                        ctx.beginPath();
-                        ctx.strokeStyle = `rgba(124, 58, 237, ${opacity})`;
-                        ctx.lineWidth = 0.5;
-                        ctx.moveTo(particles[i].x, particles[i].y);
-                        ctx.lineTo(particles[j].x, particles[j].y);
-                        ctx.stroke();
-                    }
-                }
-            }
+        // Create initial floating pharma elements
+        const count = Math.min(32, Math.max(16, Math.floor((canvas.width * canvas.height) / 38000)));
+        for (let i = 0; i < count; i++) {
+            elements.push(new PharmaParticle());
         }
 
         function animate() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-            particles.forEach(particle => {
-                particle.update();
-                particle.draw();
+            elements.forEach(el => {
+                el.update();
+                el.draw();
             });
 
-            drawConnections();
             animationId = requestAnimationFrame(animate);
         }
 
@@ -358,15 +525,83 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // ============ PARALLAX GLOW EFFECT ============
-    const glows = document.querySelectorAll('.hero-glow');
-    window.addEventListener('mousemove', (e) => {
-        const x = (e.clientX / window.innerWidth - 0.5) * 30;
-        const y = (e.clientY / window.innerHeight - 0.5) * 30;
+    // ============ CATALOG DOWNLOAD MODAL (LEAD GATE) ============
+    const openCatalogBtn = document.getElementById('openCatalogBtn');
+    const catalogModal = document.getElementById('catalogModal');
+    const closeCatalogModalBtn = document.getElementById('closeCatalogModalBtn');
+    const catalogDownloadForm = document.getElementById('catalogDownloadForm');
+    const catalogDownloadSuccess = document.getElementById('catalogDownloadSuccess');
+    const successLeadName = document.getElementById('successLeadName');
 
-        glows.forEach((glow, i) => {
-            const factor = i === 0 ? 1 : -1;
-            glow.style.transform = `translate(${x * factor}px, ${y * factor}px)`;
+    if (openCatalogBtn && catalogModal) {
+        openCatalogBtn.addEventListener('click', () => {
+            catalogModal.classList.add('active');
+            catalogModal.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+            setTimeout(() => {
+                const firstInput = catalogModal.querySelector('input');
+                if (firstInput) firstInput.focus();
+            }, 300);
         });
-    });
+
+        function closeModal() {
+            catalogModal.classList.remove('active');
+            catalogModal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        }
+
+        if (closeCatalogModalBtn) {
+            closeCatalogModalBtn.addEventListener('click', closeModal);
+        }
+
+        catalogModal.addEventListener('click', (e) => {
+            if (e.target === catalogModal) {
+                closeModal();
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && catalogModal.classList.contains('active')) {
+                closeModal();
+            }
+        });
+    }
+
+    if (catalogDownloadForm) {
+        catalogDownloadForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const formData = new FormData(catalogDownloadForm);
+            const name = formData.get('name') || 'Partner';
+            const phone = formData.get('phone') || '';
+            const email = formData.get('email') || '';
+            const location = formData.get('location') || '';
+            const interest = formData.get('interest') || '';
+
+            // Store lead in localStorage for persistence
+            try {
+                const leads = JSON.parse(localStorage.getItem('will_catalog_leads') || '[]');
+                leads.push({ name, phone, email, location, interest, timestamp: new Date().toISOString() });
+                localStorage.setItem('will_catalog_leads', JSON.stringify(leads));
+            } catch (err) {
+                console.log(err);
+            }
+
+            // Update UI to success state
+            if (successLeadName) successLeadName.textContent = name;
+            catalogDownloadForm.style.display = 'none';
+            if (catalogDownloadSuccess) {
+                catalogDownloadSuccess.classList.remove('hidden');
+                catalogDownloadSuccess.style.display = 'block';
+            }
+
+            // Trigger actual PDF download automatically
+            const downloadTrigger = document.createElement('a');
+            downloadTrigger.href = 'Will_Healthcare_Product_Catalog.pdf';
+            downloadTrigger.download = 'Will_Healthcare_Product_Catalog.pdf';
+            document.body.appendChild(downloadTrigger);
+            downloadTrigger.click();
+            document.body.removeChild(downloadTrigger);
+        });
+    }
 });
