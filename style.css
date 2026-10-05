@@ -2285,75 +2285,6 @@ ul {
     color: var(--text-primary);
 }
 
-/* ============ BIOWIL PHARMA SHOWCASE ============ */
-.mfg-showcase-wrapper {
-    margin-top: 56px;
-    margin-bottom: 56px;
-}
-
-.mfg-product-showcase-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
-    margin-top: 32px;
-}
-
-.mfg-showcase-card {
-    background: var(--bg-white);
-    border: 1px solid var(--border-card);
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    box-shadow: var(--shadow-sm);
-    transition: all var(--transition-medium);
-}
-
-.mfg-showcase-card:hover {
-    transform: translateY(-6px);
-    box-shadow: var(--shadow-card-hover);
-    border-color: var(--border-hover);
-}
-
-.mfg-showcase-img {
-    height: 220px;
-    background: #FFFFFF;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 16px;
-    border-bottom: 1px solid var(--border-light);
-}
-
-.mfg-showcase-img img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-    filter: drop-shadow(0 4px 12px rgba(15, 23, 42, 0.08));
-    transition: transform var(--transition-medium);
-}
-
-.mfg-showcase-card:hover .mfg-showcase-img img {
-    transform: scale(1.06) translateY(-2px);
-}
-
-.mfg-showcase-body {
-    padding: 22px;
-}
-
-.mfg-showcase-body h4 {
-    font-family: var(--font-heading);
-    font-size: 1.05rem;
-    font-weight: 700;
-    margin: 10px 0 6px;
-    color: var(--text-primary);
-}
-
-.mfg-showcase-body p {
-    font-size: 0.84rem;
-    color: var(--text-secondary);
-    line-height: 1.5;
-    margin-bottom: 14px;
-}
-
 .dosage-tag {
     display: inline-block;
     padding: 3px 10px;
@@ -2935,7 +2866,6 @@ ul {
     .product-tab { padding: 6px 14px; font-size: 0.78rem; }
 
     .mfg-dosage-grid { grid-template-columns: 1fr; }
-    .mfg-product-showcase-grid { grid-template-columns: 1fr; gap: 20px; }
     .matrix-title { font-size: 1.45rem; }
     .umbrella-table th, .umbrella-table td { padding: 14px 12px; font-size: 0.82rem; }
     .process-steps { flex-direction: column; align-items: center; gap: 0; }
