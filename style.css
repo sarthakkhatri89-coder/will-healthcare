@@ -2873,14 +2873,51 @@ ul {
 .mobile-sticky-cta {
     display: none;
     position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 12px 16px;
-    background: rgba(255,255,255,0.95);
-    backdrop-filter: blur(20px);
-    border-top: 1px solid var(--border-light);
-    z-index: 998;
+    left: 14px;
+    right: 14px;
+    bottom: max(12px, env(safe-area-inset-bottom));
+    padding: 8px;
+    background: rgba(255,255,255,0.94);
+    backdrop-filter: blur(18px);
+    border: 1px solid rgba(148, 163, 184, 0.22);
+    border-radius: 22px;
+    z-index: 1000;
+    box-shadow: 0 18px 44px rgba(15, 23, 42, 0.18);
+    gap: 8px;
+}
+
+.sticky-action {
+    flex: 1;
+    min-height: 52px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border-radius: 16px;
+    font-weight: 800;
+    font-size: 0.92rem;
+    text-decoration: none;
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.sticky-action:active {
+    transform: scale(0.98);
+}
+
+.sticky-call {
+    background: var(--gradient-primary);
+    color: #FFFFFF;
+    box-shadow: 0 10px 24px rgba(109,40,217,0.24);
+}
+
+.sticky-whatsapp {
+    background: #25D366;
+    color: #FFFFFF;
+    box-shadow: 0 10px 24px rgba(37,211,102,0.24);
+}
+
+.sticky-action-icon {
+    font-size: 1.1rem;
 }
 
 /* ============ SCROLL ANIMATIONS ============ */
@@ -3058,8 +3095,9 @@ ul {
     .contact-form { padding: 24px; }
 
     .footer-grid { grid-template-columns: 1fr; gap: 32px; }
-    .mobile-sticky-cta { display: block; }
-    .whatsapp-float { bottom: 80px; }
+    body { padding-bottom: 86px; }
+    .mobile-sticky-cta { display: flex; }
+    .whatsapp-float { display: none; }
 
     .segments-grid { grid-template-columns: 1fr; }
     .segment-dual-blocks { grid-template-columns: 1fr; }
@@ -3339,6 +3377,131 @@ ul {
     border-color: transparent;
     transform: translateY(-2px);
     box-shadow: 0 6px 18px rgba(109, 40, 217, 0.25);
+}
+
+@media (max-width: 768px) {
+    body {
+        padding-bottom: 86px;
+    }
+
+    .whatsapp-float {
+        display: none;
+    }
+
+    .mobile-sticky-cta {
+        display: flex;
+    }
+
+    .mfg-segments-section {
+        padding: 64px 0 42px;
+    }
+
+    .segments-grid {
+        gap: 18px;
+    }
+
+    .segment-card {
+        padding: 22px 18px;
+        border-radius: 22px;
+        box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+    }
+
+    .segment-card:hover {
+        transform: none;
+    }
+
+    .segment-card-badge {
+        position: static;
+        width: fit-content;
+        max-width: 100%;
+        margin: 0 0 16px;
+        padding: 6px 11px;
+        font-size: 0.68rem;
+        line-height: 1.25;
+        letter-spacing: 0.35px;
+    }
+
+    .segment-icon-wrap {
+        width: 48px;
+        height: 48px;
+        margin-bottom: 14px;
+        font-size: 1.35rem;
+    }
+
+    .segment-title {
+        font-size: 1.28rem;
+        line-height: 1.2;
+    }
+
+    .segment-lead {
+        font-size: 0.9rem;
+        line-height: 1.55;
+        margin-bottom: 18px;
+    }
+
+    .format-chips {
+        gap: 7px;
+    }
+
+    .format-chips .chip {
+        padding: 6px 9px;
+        font-size: 0.74rem;
+        line-height: 1.25;
+        max-width: 100%;
+    }
+
+    .segment-dual-blocks {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .dual-block {
+        padding: 12px;
+        font-size: 0.8rem;
+    }
+
+    .dual-block-head h4 {
+        font-size: 0.84rem;
+    }
+
+    .spec-item {
+        gap: 8px;
+        font-size: 0.84rem;
+        line-height: 1.55;
+    }
+
+    .btn-segment-quote {
+        min-height: 48px;
+        padding: 12px 14px;
+        border-radius: 14px;
+    }
+
+    .mfg-process {
+        margin-top: 38px;
+        border-radius: 24px;
+    }
+}
+
+@media (max-width: 420px) {
+    .mobile-sticky-cta {
+        left: 10px;
+        right: 10px;
+        padding: 7px;
+        border-radius: 20px;
+    }
+
+    .sticky-action {
+        min-height: 50px;
+        font-size: 0.86rem;
+    }
+
+    .segment-card {
+        padding: 20px 16px;
+    }
+
+    .format-chips .chip {
+        font-size: 0.72rem;
+    }
 }
 
 /* ============ FRANCHISE BENEFITS RIBBON ============ */
