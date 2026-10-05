@@ -393,6 +393,29 @@ document.addEventListener('DOMContentLoaded', () => {
         revealObserver.observe(el);
     });
 
+    // ============ INTERACTIVE MANUFACTURING ROADMAP ============
+    const processRoadmap = document.querySelector('.process-roadmap');
+    const processRoute = document.querySelector('.process-route');
+    const processSteps = document.querySelectorAll('.process-roadmap .process-step');
+
+    if (processRoadmap && processRoute && processSteps.length > 0) {
+        const setActiveProcessStep = (activeIndex) => {
+            processSteps.forEach((step, index) => {
+                step.classList.toggle('active', index === activeIndex);
+            });
+            const progress = Math.round(((activeIndex + 1) / processSteps.length) * 100);
+            processRoute.style.setProperty('--route-progress', `${progress}%`);
+        };
+
+        processSteps.forEach((step, index) => {
+            step.addEventListener('mouseenter', () => setActiveProcessStep(index));
+            step.addEventListener('focus', () => setActiveProcessStep(index));
+            step.addEventListener('click', () => setActiveProcessStep(index));
+        });
+
+        setActiveProcessStep(0);
+    }
+
     // ============ PRODUCT FILTERING (WHEN PRESENT) ============
     const productTabs = document.querySelectorAll('.product-tab');
     const productCards = document.querySelectorAll('.product-card');
@@ -682,9 +705,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ============ SCROLL REVEAL ANIMATIONS ============
-    const revealElements = document.querySelectorAll('.reveal-on-scroll');
-    if ('IntersectionObserver' in window && revealElements.length > 0) {
-        const revealObserver = new IntersectionObserver((entries, observer) => {
+    const inlineRevealElements = document.querySelectorAll('.reveal-on-scroll');
+    if ('IntersectionObserver' in window && inlineRevealElements.length > 0) {
+        const inlineRevealObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('revealed');
@@ -696,10 +719,10 @@ document.addEventListener('DOMContentLoaded', () => {
             rootMargin: '0px 0px -40px 0px'
         });
 
-        revealElements.forEach(el => revealObserver.observe(el));
+        inlineRevealElements.forEach(el => inlineRevealObserver.observe(el));
     } else {
         // Fallback for browsers without IntersectionObserver
-        revealElements.forEach(el => el.classList.add('revealed'));
+        inlineRevealElements.forEach(el => el.classList.add('revealed'));
     }
 
     // ============ ANIMATED STAT COUNTERS ============
@@ -785,4 +808,3 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 });
-

@@ -2306,76 +2306,217 @@ ul {
 
 /* Manufacturing Process */
 .mfg-process {
-    margin-top: 32px;
+    margin-top: 64px;
+    padding: 52px clamp(18px, 4vw, 48px);
+    background:
+        radial-gradient(circle at 16% 8%, rgba(109, 40, 217, 0.12), transparent 32%),
+        radial-gradient(circle at 86% 14%, rgba(6, 182, 212, 0.13), transparent 30%),
+        linear-gradient(135deg, rgba(255,255,255,0.92), rgba(248,250,252,0.98));
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-card);
+    overflow: hidden;
+    position: relative;
 }
 
-.process-steps {
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    gap: 0;
-    margin-top: 48px;
-    flex-wrap: wrap;
+.mfg-process::before {
+    content: '';
+    position: absolute;
+    inset: 20px;
+    border: 1px solid rgba(148, 163, 184, 0.16);
+    border-radius: calc(var(--radius-xl) - 8px);
+    pointer-events: none;
+}
+
+.process-header {
+    position: relative;
+    z-index: 1;
+    max-width: 720px;
+    margin: 0 auto 44px;
+    text-align: center;
+}
+
+.process-header .umbrella-title {
+    margin-top: 14px;
+    margin-bottom: 14px;
+}
+
+.process-header p {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    font-size: 0.98rem;
+}
+
+.process-roadmap {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 22px;
+    align-items: stretch;
+}
+
+.process-route {
+    position: absolute;
+    top: 42px;
+    left: 10%;
+    right: 10%;
+    height: 5px;
+    --route-progress: 25%;
+    background: linear-gradient(
+        90deg,
+        var(--purple) 0%,
+        var(--cyan) var(--route-progress),
+        rgba(148, 163, 184, 0.24) var(--route-progress),
+        rgba(148, 163, 184, 0.24) 100%
+    );
+    border-radius: var(--radius-full);
+    box-shadow: 0 0 24px rgba(6, 182, 212, 0.22);
+    transition: background var(--transition-medium);
+}
+
+.process-route::before,
+.process-route::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: #FFFFFF;
+    border: 3px solid var(--cyan);
+    transform: translateY(-50%);
+    box-shadow: 0 0 0 6px rgba(6, 182, 212, 0.12);
+}
+
+.process-route::before {
+    left: 0;
+}
+
+.process-route::after {
+    right: 0;
 }
 
 .process-step {
-    text-align: center;
-    max-width: 220px;
-    flex: 1;
-    min-width: 180px;
+    position: relative;
+    z-index: 2;
+    min-height: 300px;
+    padding: 26px 22px 24px;
+    text-align: left;
+    background: rgba(255,255,255,0.86);
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 14px 38px rgba(15, 23, 42, 0.07);
+    backdrop-filter: blur(14px);
+    transition: transform var(--transition-medium), box-shadow var(--transition-medium), border-color var(--transition-medium);
+    outline: none;
+    overflow: hidden;
+}
+
+.process-step::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(109,40,217,0.08), rgba(6,182,212,0.08));
+    opacity: 0;
+    transition: opacity var(--transition-medium);
+}
+
+.process-step:hover,
+.process-step:focus-visible,
+.process-step.active {
+    transform: translateY(-10px);
+    border-color: rgba(109, 40, 217, 0.32);
+    box-shadow: 0 24px 56px rgba(15, 23, 42, 0.12);
+}
+
+.process-step:hover::before,
+.process-step:focus-visible::before,
+.process-step.active::before {
+    opacity: 1;
 }
 
 .process-step-number {
-    display: inline-flex;
+    position: relative;
+    display: flex;
     align-items: center;
     justify-content: center;
-    width: 56px;
-    height: 56px;
+    width: 64px;
+    height: 64px;
     background: var(--gradient-primary);
     border-radius: 50%;
     font-family: var(--font-heading);
     font-size: 1.2rem;
     font-weight: 800;
     color: var(--text-white);
-    margin-bottom: 16px;
+    margin-bottom: 22px;
     box-shadow: var(--shadow-purple);
+}
+
+.process-step-number::after {
+    content: '';
+    position: absolute;
+    inset: -8px;
+    border: 1px dashed rgba(109,40,217,0.32);
+    border-radius: 50%;
+    animation: processSpin 12s linear infinite;
+}
+
+@keyframes processSpin {
+    to { transform: rotate(360deg); }
+}
+
+.process-step-icon {
+    position: absolute;
+    top: 24px;
+    right: 22px;
+    width: 44px;
+    height: 44px;
+    display: grid;
+    place-items: center;
+    border-radius: var(--radius-md);
+    background: rgba(248, 250, 252, 0.9);
+    border: 1px solid var(--border-light);
+    font-size: 1.3rem;
+}
+
+.process-step-meta {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 10px;
+    margin-bottom: 14px;
+    border-radius: var(--radius-full);
+    background: var(--purple-lighter);
+    color: var(--purple);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+}
+
+.process-step.active .process-step-meta {
+    background: var(--gradient-primary);
+    color: var(--text-white);
+    box-shadow: 0 8px 24px rgba(109, 40, 217, 0.18);
+}
+
+.process-step-content {
+    position: relative;
 }
 
 .process-step-content h4 {
     font-family: var(--font-heading);
-    font-size: 1rem;
-    font-weight: 700;
-    margin-bottom: 8px;
+    font-size: 1.08rem;
+    font-weight: 800;
+    margin-bottom: 10px;
     color: var(--text-primary);
 }
 
 .process-step-content p {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     color: var(--text-secondary);
-    line-height: 1.6;
-}
-
-.process-connector {
-    width: 60px;
-    height: 3px;
-    background: linear-gradient(to right, var(--purple-light), var(--cyan-light));
-    margin-top: 28px;
-    flex-shrink: 0;
-    position: relative;
-    border-radius: 2px;
-}
-
-.process-connector::after {
-    content: '';
-    position: absolute;
-    right: -4px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 0;
-    height: 0;
-    border-top: 6px solid transparent;
-    border-bottom: 6px solid transparent;
-    border-left: 8px solid var(--cyan-light);
+    line-height: 1.65;
 }
 
 /* ============ CONTACT ============ */
@@ -2868,13 +3009,48 @@ ul {
     .mfg-dosage-grid { grid-template-columns: 1fr; }
     .matrix-title { font-size: 1.45rem; }
     .umbrella-table th, .umbrella-table td { padding: 14px 12px; font-size: 0.82rem; }
-    .process-steps { flex-direction: column; align-items: center; gap: 0; }
-    .process-connector { width: 3px; height: 40px; margin: 0; }
-    .process-connector::after {
-        right: auto; bottom: -4px; top: auto; left: 50%;
-        transform: translateX(-50%);
-        border-left: 6px solid transparent; border-right: 6px solid transparent;
-        border-top: 8px solid var(--cyan-light); border-bottom: none;
+    .process-roadmap {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+    .process-route {
+        top: 32px;
+        bottom: 32px;
+        left: 31px;
+        right: auto;
+        width: 5px;
+        height: auto;
+        background: linear-gradient(
+            180deg,
+            var(--purple) 0%,
+            var(--cyan) var(--route-progress),
+            rgba(148, 163, 184, 0.24) var(--route-progress),
+            rgba(148, 163, 184, 0.24) 100%
+        );
+    }
+    .process-route::before,
+    .process-route::after {
+        left: 50%;
+        right: auto;
+        transform: translate(-50%, 0);
+    }
+    .process-route::before { top: 0; }
+    .process-route::after { top: auto; bottom: 0; }
+    .process-step {
+        min-height: auto;
+        padding-left: 88px;
+    }
+    .process-step-number {
+        position: absolute;
+        left: 22px;
+        top: 24px;
+        width: 54px;
+        height: 54px;
+        margin: 0;
+    }
+    .process-step-icon {
+        top: 22px;
+        right: 20px;
     }
 
     .form-row { grid-template-columns: 1fr; }
@@ -2899,6 +3075,12 @@ ul {
     .umbrella-matrix-wrapper { margin-top: 40px; margin-bottom: 40px; }
     .segment-card { padding: 24px 20px; }
     .segment-title { font-size: 1.35rem; }
+    .mfg-process { padding: 34px 16px; }
+    .process-header { margin-bottom: 28px; }
+    .process-step { padding: 86px 18px 22px; }
+    .process-step-number { left: 18px; top: 20px; }
+    .process-step-icon { left: 84px; right: auto; top: 24px; }
+    .process-route { display: none; }
 }
 
 /* ============ SPECIALIZED MANUFACTURING SEGMENTS STYLING ============ */
