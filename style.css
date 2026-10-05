@@ -2180,6 +2180,13 @@ ul {
     margin-bottom: 80px;
 }
 
+.mfg-plant-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
 .mfg-biowil-badge {
     display: flex;
     align-items: center;
@@ -2188,8 +2195,17 @@ ul {
     background: var(--cyan-lighter);
     border: 1px solid rgba(8,145,178,0.15);
     border-radius: var(--radius-md);
-    margin-bottom: 24px;
     width: fit-content;
+}
+
+.badge-solid-orals {
+    background: var(--purple-lighter);
+    border-color: rgba(109,40,217,0.14);
+}
+
+.badge-liquid-orals {
+    background: rgba(245, 158, 11, 0.1);
+    border-color: rgba(245, 158, 11, 0.18);
 }
 
 .mfg-biowil-icon {
