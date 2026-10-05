@@ -703,13 +703,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ============ ANIMATED STAT COUNTERS ============
-    const statCounters = document.querySelectorAll('.hero-stat-number[data-target], .stat-banner-number[data-count]');
-    
     function animateCounter(el) {
         const target = parseInt(el.getAttribute('data-target') || el.getAttribute('data-count'), 10);
         if (isNaN(target)) return;
 
-        const duration = 2000; // ms
+        el.textContent = '0';
+        const duration = 1800; // ms
         const startTime = performance.now();
 
         function updateCounter(currentTime) {
@@ -730,7 +729,17 @@ document.addEventListener('DOMContentLoaded', () => {
         requestAnimationFrame(updateCounter);
     }
 
-    if ('IntersectionObserver' in window && statCounters.length > 0) {
+    // Hero stats are visible at or near top of page; trigger automatically after hero entrance
+    const heroCounters = document.querySelectorAll('.hero-stat-number[data-target]');
+    if (heroCounters.length > 0) {
+        setTimeout(() => {
+            heroCounters.forEach(counter => animateCounter(counter));
+        }, 400);
+    }
+
+    // Mid-page banner counters animate when scrolled into view
+    const bannerCounters = document.querySelectorAll('.stat-banner-number[data-count]');
+    if ('IntersectionObserver' in window && bannerCounters.length > 0) {
         const counterObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -738,11 +747,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     observer.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.25 });
+        }, { threshold: 0.1 });
 
-        statCounters.forEach(counter => counterObserver.observe(counter));
+        bannerCounters.forEach(counter => counterObserver.observe(counter));
     } else {
-        statCounters.forEach(counter => animateCounter(counter));
+        bannerCounters.forEach(counter => animateCounter(counter));
     }
 
     // ============ FAQ ACCORDION INTERACTIVITY ============
