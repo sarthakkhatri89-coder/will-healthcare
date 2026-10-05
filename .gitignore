@@ -10,6 +10,7 @@ build/
 # Temporary & Raw assets
 *.zip
 products_raw/
+scratch/
 *.tmp
 *.log
 
