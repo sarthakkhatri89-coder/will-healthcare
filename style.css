@@ -4314,14 +4314,17 @@ ul {
 /* ============ FOUNDER PAGE SPECIFIC ============ */
 .founder-profile-hero {
     display: grid;
-    grid-template-columns: 400px 1fr;
-    gap: 60px;
-    align-items: center;
+    grid-template-columns: minmax(420px, 0.95fr) minmax(0, 1.05fr);
+    gap: clamp(42px, 5vw, 72px);
+    align-items: stretch;
     padding: 60px 0 80px;
 }
 
 .founder-portrait-container {
     position: relative;
+    width: 100%;
+    min-height: 100%;
+    display: flex;
 }
 
 .founder-portrait-glow {
@@ -4337,9 +4340,11 @@ ul {
     position: relative;
     z-index: 2;
     width: 100%;
-    aspect-ratio: 3/4;
+    min-height: 620px;
+    height: 100%;
+    aspect-ratio: 4/5;
     object-fit: cover;
-    object-position: center 15%;
+    object-position: center 12%;
     border-radius: 24px;
     border: 3px solid #FFFFFF;
     box-shadow: 0 20px 50px rgba(0,0,0,0.15);
@@ -5204,11 +5209,21 @@ ul {
         grid-template-columns: 1fr;
         gap: 40px;
         text-align: center;
+        align-items: center;
     }
     
     .founder-portrait-container {
-        max-width: 340px;
+        max-width: min(520px, 92vw);
         margin: 0 auto;
+        min-height: auto;
+        display: block;
+    }
+
+    .founder-portrait-img {
+        min-height: auto;
+        height: auto;
+        max-height: 640px;
+        aspect-ratio: 4/5;
     }
 
     .pcd-form-grid {
@@ -5244,7 +5259,13 @@ ul {
     }
 
     .founder-portrait-container {
-        max-width: min(300px, 88vw);
+        max-width: min(380px, 92vw);
+    }
+
+    .founder-portrait-img {
+        aspect-ratio: 4/5;
+        max-height: 520px;
+        object-position: center 12%;
     }
 
     .founder-bio-card {
@@ -5288,6 +5309,26 @@ ul {
 
     .footer-divider-pipe {
         display: none;
+    }
+}
+
+@media (max-width: 420px) {
+    .founder-portrait-container {
+        max-width: 94vw;
+    }
+
+    .founder-portrait-img {
+        aspect-ratio: 5/6;
+        max-height: 460px;
+        border-radius: 20px;
+    }
+
+    .founder-portrait-badge {
+        max-width: calc(100% - 24px);
+        text-align: center;
+        white-space: normal;
+        line-height: 1.25;
+        padding: 9px 18px;
     }
 }
 
