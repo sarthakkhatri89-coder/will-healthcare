@@ -83,6 +83,9 @@
 html {
     scroll-behavior: smooth;
     scroll-padding-top: 80px;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 body {
@@ -92,6 +95,8 @@ body {
     line-height: 1.7;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
+    width: 100%;
+    max-width: 100%;
 }
 
 a {
@@ -110,6 +115,7 @@ ul {
 }
 
 .container {
+    width: 100%;
     max-width: var(--container-width);
     margin: 0 auto;
     padding: 0 24px;
@@ -2966,6 +2972,36 @@ ul {
 @media (max-width: 960px) {
     :root { --section-padding: 64px 0; }
 
+    *, *::before, *::after {
+        min-width: 0;
+    }
+
+    html,
+    body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    section,
+    header,
+    footer,
+    .navbar,
+    .container,
+    .nav-container,
+    .hero-content,
+    .umbrella-flow-container,
+    .mfg-hero,
+    .companies-grid-enhanced {
+        max-width: 100%;
+    }
+
+    .container,
+    .nav-container {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
     .nav-links {
         position: fixed;
         top: 0;
@@ -3020,6 +3056,20 @@ ul {
         align-items: flex-start;
         padding: 22px 20px;
         gap: 16px;
+        width: 100%;
+        max-width: 100%;
+    }
+    .flow-stage,
+    .flow-card-content,
+    .flow-pillar-card,
+    .flow-synergy-ribbon,
+    .umbrella-matrix-wrapper {
+        width: 100%;
+        max-width: 100%;
+    }
+    .flow-card-meta,
+    .flow-card-tags {
+        flex-wrap: wrap;
     }
     .flow-card-icon-wrap {
         width: 52px;
@@ -3066,7 +3116,31 @@ ul {
     .product-tabs { gap: 6px; }
     .product-tab { padding: 6px 14px; font-size: 0.78rem; }
 
+    .mfg-hero {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        margin-bottom: 48px;
+        align-items: stretch;
+    }
+    .mfg-hero-content,
+    .mfg-hero-visual {
+        width: 100%;
+        max-width: 100%;
+    }
+    .mfg-plant-badges {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    .mfg-biowil-badge {
+        width: 100%;
+        align-items: center;
+    }
     .mfg-dosage-grid { grid-template-columns: 1fr; }
+    .mfg-dosage-card {
+        width: 100%;
+        padding: 16px;
+    }
     .matrix-title { font-size: 1.45rem; }
     .umbrella-table th, .umbrella-table td { padding: 14px 12px; font-size: 0.82rem; }
     .process-roadmap {
@@ -3128,12 +3202,53 @@ ul {
 }
 
 @media (max-width: 480px) {
+    .container,
+    .nav-container {
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+
+    .section-header {
+        margin-bottom: 36px;
+    }
+
     .hero-title { font-size: 2rem; }
     .hero-stats { flex-direction: column; gap: 16px; }
     .section-title { font-size: 1.6rem; }
     .flow-node-name { font-size: 0.95rem; }
     .eco-card { padding: 24px 20px; }
     .umbrella-matrix-wrapper { margin-top: 40px; margin-bottom: 40px; }
+    .umbrella-section {
+        margin-top: 56px;
+    }
+    .umbrella-title {
+        font-size: 1.6rem;
+        line-height: 1.22;
+    }
+    .umbrella-desc {
+        font-size: 0.9rem;
+    }
+    .flow-stage-pill {
+        max-width: 100%;
+        white-space: normal;
+        text-align: center;
+        line-height: 1.35;
+    }
+    .flow-card {
+        padding: 20px 16px;
+        border-radius: 20px;
+    }
+    .flow-card-title {
+        font-size: 1.1rem;
+        line-height: 1.25;
+    }
+    .flow-card-text {
+        font-size: 0.84rem;
+    }
+    .flow-pillar-card {
+        padding: 22px 18px;
+        border-radius: 20px;
+    }
     .segment-card { padding: 24px 20px; }
     .segment-title { font-size: 1.35rem; }
     .mfg-process { padding: 34px 16px; }
@@ -5013,6 +5128,43 @@ ul {
 }
 
 @media (max-width: 640px) {
+    .page-hero {
+        padding: 110px 0 58px;
+        overflow: hidden;
+    }
+
+    .page-hero-content,
+    .founder-profile-hero,
+    .founder-story-content,
+    .companies-grid-enhanced,
+    .company-card-enhanced,
+    .strategic-callout-banner,
+    .pcd-form-grid,
+    .pcd-form-card {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .founder-profile-hero {
+        gap: 28px;
+    }
+
+    .founder-portrait-container {
+        max-width: min(300px, 88vw);
+    }
+
+    .company-card-enhanced {
+        padding: 22px 18px;
+        border-radius: 20px;
+    }
+
+    .company-card-header,
+    .company-card-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+    }
+
     .pcd-form-row {
         grid-template-columns: 1fr;
     }
@@ -5025,6 +5177,68 @@ ul {
 
     .footer-divider-pipe {
         display: none;
+    }
+}
+
+/* Final mobile overflow guard: keep every page inside the device viewport */
+@media (max-width: 768px) {
+    html,
+    body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    .container,
+    .nav-container,
+    section,
+    .page-hero,
+    .hero,
+    .founder,
+    .umbrella-section,
+    .mfg-infra-section,
+    .mfg-segments-section,
+    .companies-ecosystem-section,
+    .contact {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    .mfg-hero,
+    .founder-profile,
+    .founder-profile-hero,
+    .contact-wrapper,
+    .form-row,
+    .pcd-form-grid,
+    .companies-grid-enhanced,
+    .footer-grid {
+        display: grid;
+        grid-template-columns: 1fr !important;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .mfg-hero-content,
+    .mfg-hero-visual,
+    .umbrella-flow-container,
+    .flow-stage,
+    .flow-card,
+    .flow-pillar-card,
+    .flow-synergy-ribbon,
+    .founder-info,
+    .founder-image-wrapper,
+    .founder-portrait-container,
+    .company-card-enhanced,
+    .contact-form,
+    .contact-sidebar {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .page-hero-glow,
+    .hero-glow {
+        max-width: 85vw;
     }
 }
 
