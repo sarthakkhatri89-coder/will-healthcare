@@ -18,7 +18,7 @@ Unified leadership under **Mr. Surender Singh Basera**:
 
 ### 🏭 Manufacturing Companies
 1. **Biowil Formulation** — *High-Capacity Topical, Liquid & Powder Plant*
-   - WHO-GMP Certified facility in Baddi, Himachal Pradesh.
+   - GMP Certified facility in Baddi, Himachal Pradesh.
    - Specialization: Gels, Creams, Lotions, Powders, Soaps (Drug & Cosmetic formulations).
 2. **Saavya Pharmaceuticals** — *Solid Oral Dosage Forms*
    - Dedicated high-velocity lines for Drug & Food Tablets, Hard Gelatin Capsules, and Softgel Capsules.

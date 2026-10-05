@@ -19,7 +19,7 @@ All entities operate under the unified ownership and leadership of **Mr. Surende
 | Company Name | Core Role | Scope / Specialty |
 |---|---|---|
 | **Will Healthcare Pvt. Ltd.** | Marketing & Flagship Hub | PCD Franchise (Monopoly rights across India), Ethical pharma marketing |
-| **Biowil Formulation** | Manufacturing Arm | WHO-GMP Certified manufacturing for Gels, Creams, Lotions, Powders, Soaps (Drug & Cosmetic) |
+| **Biowil Formulation** | Manufacturing Arm | GMP Certified manufacturing for Gels, Creams, Lotions, Powders, Soaps (Drug & Cosmetic) |
 | **Biocuree Pharmaceuticals** | Specialty Marketing | Dedicated marketing company for advanced therapeutic segments |
 | **Saavya Pharmaceuticals** | Manufacturing Partner | Dedicated facilities for Drug & Food Tablets, Hard Gelatin Capsules, Softgels |
 | **Aries Drugs** | Manufacturing Partner | Dedicated facility for Syrups, Suspensions & Liquid Orals |
@@ -44,7 +44,7 @@ All entities operate under the unified ownership and leadership of **Mr. Surende
     1. `10M+ Monthly Units Capacity`
     2. `4 Specialized Segments`
     3. `200+ Happy Brand Partners`
-    4. `100% WHO-GMP & QC Verified`
+    4. `100% GMP & QC Verified`
     - Statically seeded values in HTML so numbers never appear stuck at `0`.
     - Script triggers counter animation automatically after 400ms entrance.
 - **Manufacturing Segments:**
@@ -54,7 +54,7 @@ All entities operate under the unified ownership and leadership of **Mr. Surende
   - Liquid Orals (Syrups & suspensions via Aries Drugs facility).
 - **Interactive RFQ / Quote Calculator & B2B Lead Form.**
 - **Group Ecosystem Overview:** Showcases Biowil Formulation, Saavya, Biocuree, and Aries Drugs with links to `founder.html`.
-- **Certifications & Compliance:** WHO-GMP, ISO, GLP, Schedule M adherence.
+- **Certifications & Compliance:** GMP, ISO, GLP, Schedule M adherence.
 - **Note on Reviews:** The customer reviews/testimonials section was completely removed as per client request.
 
 ### 2. `founder.html` (Founder & Corporate Group Page)
