@@ -165,7 +165,7 @@ const WILL_PRODUCTS = [
     badge: "Infant Colic Oral Drops",
     image: "products/product_14.jpeg",
     description: "Pediatric carminative and anti-flatulent drops relieving infantile colic, griping pain, and flatulence.",
-    manufacturer: "Aries Drugs Pvt. Ltd.",
+    manufacturer: "Aries Drugs",
     marketer: "Will Healthcare Pvt. Ltd."
   },
   {
@@ -261,7 +261,7 @@ const WILL_PRODUCTS = [
     badge: "Pediatric Antibiotic Suspension",
     image: "products/product_22.jpeg",
     description: "Third-generation cephalosporin dry syrup formulated for pediatric respiratory and ear infections.",
-    manufacturer: "Saavya Pharmaceuticals",
+    manufacturer: "Savya Pharmaceuticals",
     marketer: "Will Healthcare Pvt. Ltd."
   },
   {
@@ -357,7 +357,7 @@ const WILL_PRODUCTS = [
     badge: "Triple Action Analgesic",
     image: "products/product_30.jpeg",
     description: "Potent NSAID, antipyretic, and proteolytic enzyme combination for acute trauma, post-surgery pain, and osteoarthritis.",
-    manufacturer: "Saavya Pharmaceuticals",
+    manufacturer: "Savya Pharmaceuticals",
     marketer: "Will Healthcare Pvt. Ltd."
   },
   {
@@ -369,7 +369,7 @@ const WILL_PRODUCTS = [
     badge: "Stimulant Laxative",
     image: "products/product_31.jpeg",
     description: "Reliable targeted colonic stimulant laxative for overnight relief from acute and chronic constipation.",
-    manufacturer: "Saavya Pharmaceuticals",
+    manufacturer: "Savya Pharmaceuticals",
     marketer: "Will Healthcare Pvt. Ltd."
   },
   {
@@ -381,7 +381,7 @@ const WILL_PRODUCTS = [
     badge: "Master Antioxidant & Skin Glow",
     image: "products/product_32.jpeg",
     description: "Premium master antioxidant supplement neutralizing free radicals and promoting systemic dermatological luminosity.",
-    manufacturer: "Saavya Pharmaceuticals",
+    manufacturer: "Savya Pharmaceuticals",
     marketer: "Will Healthcare Pvt. Ltd."
   },
   {
@@ -393,7 +393,7 @@ const WILL_PRODUCTS = [
     badge: "Systemic Broad-Spectrum Antifungal",
     image: "products/product_33.jpeg",
     description: "High-bioavailability micro-pelletized itraconazole for onychomycosis, candidiasis, and deep fungal infections.",
-    manufacturer: "Saavya Pharmaceuticals",
+    manufacturer: "Savya Pharmaceuticals",
     marketer: "Will Healthcare Pvt. Ltd."
   },
   {
@@ -405,7 +405,7 @@ const WILL_PRODUCTS = [
     badge: "High Potency Systemic Antifungal",
     image: "products/product_34.jpeg",
     description: "Double-strength micro-pelletized triazole antifungal for severe, recurrent, and deep mycological infections.",
-    manufacturer: "Saavya Pharmaceuticals",
+    manufacturer: "Savya Pharmaceuticals",
     marketer: "Will Healthcare Pvt. Ltd."
   },
   {
@@ -417,7 +417,7 @@ const WILL_PRODUCTS = [
     badge: "Anti-Inflammatory & Edema Reducer",
     image: "products/product_35.jpeg",
     description: "Rapidly absorbed potassium diclofenac with paracetamol and serratiopeptidase to quickly reduce inflammation and swelling.",
-    manufacturer: "Saavya Pharmaceuticals",
+    manufacturer: "Savya Pharmaceuticals",
     marketer: "Will Healthcare Pvt. Ltd."
   },
   {
@@ -429,7 +429,7 @@ const WILL_PRODUCTS = [
     badge: "Mouth Dissolving Analgesic",
     image: "products/product_36.jpeg",
     description: "Fast-onset preferential COX-2 inhibitor mouth dissolving tablet for rapid relief of acute pain and dysmenorrhea.",
-    manufacturer: "Saavya Pharmaceuticals",
+    manufacturer: "Savya Pharmaceuticals",
     marketer: "Will Healthcare Pvt. Ltd."
   },
   {
@@ -441,7 +441,7 @@ const WILL_PRODUCTS = [
     badge: "Ayurvedic Pain Relieving Liniment",
     image: "products/product_37.jpeg",
     description: "Penetrating herbal liniment delivering soothing herbal warmth for arthritis, joint stiffness, sciatica, and sprains.",
-    manufacturer: "Aries Drugs Pvt. Ltd.",
+    manufacturer: "Aries Drugs",
     marketer: "Will Healthcare Pvt. Ltd."
   },
   {
@@ -453,7 +453,7 @@ const WILL_PRODUCTS = [
     badge: "Immunity & Collagen Support",
     image: "products/product_38.jpeg",
     description: "Delicious orange-flavored chewable vitamin C boosting cellular immunity, wound healing, and collagen synthesis.",
-    manufacturer: "Saavya Pharmaceuticals",
+    manufacturer: "Savya Pharmaceuticals",
     marketer: "Will Healthcare Pvt. Ltd."
   },
   {
@@ -465,7 +465,7 @@ const WILL_PRODUCTS = [
     badge: "Weekly Vitamin D3 Megadose",
     image: "products/product_39.jpeg",
     description: "High-dose therapeutic cholecalciferol softgel correcting vitamin D deficiency and bolstering skeletal bone density.",
-    manufacturer: "Saavya Pharmaceuticals",
+    manufacturer: "Savya Pharmaceuticals",
     marketer: "Will Healthcare Pvt. Ltd."
   },
   {
@@ -477,7 +477,7 @@ const WILL_PRODUCTS = [
     badge: "High Potency Antipyretic",
     image: "products/product_40.jpeg",
     description: "Standard 650 mg paracetamol for high viral fevers, influenza symptoms, headache, and severe body aches.",
-    manufacturer: "Saavya Pharmaceuticals",
+    manufacturer: "Savya Pharmaceuticals",
     marketer: "Will Healthcare Pvt. Ltd."
   },
   {
@@ -489,7 +489,7 @@ const WILL_PRODUCTS = [
     badge: "Proton Pump Inhibitor + Prokinetic",
     image: "products/product_41.jpeg",
     description: "Comprehensive dual-release capsule for GERD, hyperacidity, peptic ulceration, and associated nausea.",
-    manufacturer: "Saavya Pharmaceuticals",
+    manufacturer: "Savya Pharmaceuticals",
     marketer: "Will Healthcare Pvt. Ltd."
   },
   {
@@ -501,7 +501,7 @@ const WILL_PRODUCTS = [
     badge: "Fast Dispersible Analgesic",
     image: "products/product_42.jpeg",
     description: "High-potency non-opioid NSAID dispersible tablet ideal for acute moderate-to-severe dental and post-surgical pain.",
-    manufacturer: "Saavya Pharmaceuticals",
+    manufacturer: "Savya Pharmaceuticals",
     marketer: "Will Healthcare Pvt. Ltd."
   },
   {
@@ -513,7 +513,7 @@ const WILL_PRODUCTS = [
     badge: "Bone Health Vitamin D3",
     image: "products/product_43.jpeg",
     description: "Targeted cholecalciferol formulation optimizing calcium absorption and preventing osteomalacia.",
-    manufacturer: "Saavya Pharmaceuticals",
+    manufacturer: "Savya Pharmaceuticals",
     marketer: "Will Healthcare Pvt. Ltd."
   },
   {
@@ -525,7 +525,7 @@ const WILL_PRODUCTS = [
     badge: "Gentle Laxative",
     image: "products/product_44.jpeg",
     description: "Gentle enteric-coated formulation promoting natural peristaltic bowel movement.",
-    manufacturer: "Saavya Pharmaceuticals",
+    manufacturer: "Savya Pharmaceuticals",
     marketer: "Will Healthcare Pvt. Ltd."
   },
   {
@@ -537,7 +537,7 @@ const WILL_PRODUCTS = [
     badge: "Antibiotic + Probiotic",
     image: "products/product_45.jpeg",
     description: "Broad-spectrum antibacterial paired with gut-protective probiotic spores to prevent diarrhea.",
-    manufacturer: "Saavya Pharmaceuticals",
+    manufacturer: "Savya Pharmaceuticals",
     marketer: "Will Healthcare Pvt. Ltd."
   },
   {
@@ -549,7 +549,7 @@ const WILL_PRODUCTS = [
     badge: "Antioxidant & Skin/Hair Nourishment",
     image: "products/product_46.jpeg",
     description: "Fat-soluble essential antioxidant softgel promoting capillary health, cellular repair, and glowing skin.",
-    manufacturer: "Saavya Pharmaceuticals",
+    manufacturer: "Savya Pharmaceuticals",
     marketer: "Will Healthcare Pvt. Ltd."
   },
   {
@@ -561,7 +561,7 @@ const WILL_PRODUCTS = [
     badge: "Herbal Hepato-Protective Tonic",
     image: "products/product_47.jpeg",
     description: "Fortified hepatoprotective herbal syrup restoring liver enzymes, relieving loss of appetite, and aiding digestion.",
-    manufacturer: "Aries Drugs Pvt. Ltd.",
+    manufacturer: "Aries Drugs",
     marketer: "Will Healthcare Pvt. Ltd."
   },
   {
@@ -578,14 +578,14 @@ const WILL_PRODUCTS = [
   },
   {
     id: "p49",
-    name: "Willo-D Capsules (Saavya)",
+    name: "Willo-D Capsules (Savya)",
     composition: "Omeprazole 20 mg + Domperidone 10 mg Sustained Release Capsules",
     category: "capsules",
     packing: "10 x 10 Capsules",
     badge: "Dual Action Antacid",
     image: "products/product_49.jpeg",
-    description: "Manufactured at Saavya Pharmaceuticals — prompt relief from heartburn, acid regurgitation, and gastritis.",
-    manufacturer: "Saavya Pharmaceuticals",
+    description: "Manufactured at Savya Pharmaceuticals — prompt relief from heartburn, acid regurgitation, and gastritis.",
+    manufacturer: "Savya Pharmaceuticals",
     marketer: "Will Healthcare Pvt. Ltd."
   },
   {
@@ -597,7 +597,7 @@ const WILL_PRODUCTS = [
     badge: "Complete Uterine Health Care",
     image: "products/product_50.jpeg",
     description: "Comprehensive herbal female restorative tonic balancing hormones, reducing menstrual distress, and enhancing vitality.",
-    manufacturer: "Aries Drugs Pvt. Ltd.",
+    manufacturer: "Aries Drugs",
     marketer: "Will Healthcare Pvt. Ltd."
   },
   {
@@ -609,7 +609,7 @@ const WILL_PRODUCTS = [
     badge: "Advanced Calcium Complex",
     image: "products/product_51.jpeg",
     description: "High-absorption calcium citrate formula with synergistic minerals and vitamin D3 for comprehensive bone density.",
-    manufacturer: "Saavya Pharmaceuticals",
+    manufacturer: "Savya Pharmaceuticals",
     marketer: "Will Healthcare Pvt. Ltd."
   }
 ];

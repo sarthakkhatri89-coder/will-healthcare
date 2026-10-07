@@ -21,11 +21,11 @@ All entities operate under the unified ownership and leadership of **Mr. Surende
 | **Will Healthcare Pvt. Ltd.** | Marketing & Flagship Hub | PCD Franchise (Monopoly rights across India), Ethical pharma marketing |
 | **Biowil Formulation** | Manufacturing Arm | GMP Certified manufacturing for Gels, Creams, Lotions, Powders, Soaps (Drug & Cosmetic) |
 | **Biocuree Pharmaceuticals** | Specialty Marketing | Dedicated marketing company for advanced therapeutic segments |
-| **Saavya Pharmaceuticals** | Manufacturing Partner | Dedicated facilities for Drug & Food Tablets, Hard Gelatin Capsules, Softgels |
+| **Savya Pharmaceuticals** | Manufacturing Partner | Dedicated facilities for Drug & Food Tablets, Hard Gelatin Capsules, Softgels |
 | **Aries Drugs** | Manufacturing Partner | Dedicated facility for Syrups, Suspensions & Liquid Orals |
 
 > **Key Rule Established by Client:**  
-> Always clearly distinguish between **Marketing Companies** (Will Healthcare, Biocuree Pharmaceuticals) and **Manufacturing Facilities** (Biowil Formulation, Saavya Pharmaceuticals, Aries Drugs) owned and spearheaded by Mr. Surender Singh Basera.
+> Always clearly distinguish between **Marketing Companies** (Will Healthcare, Biocuree Pharmaceuticals) and **Manufacturing Facilities** (Biowil Formulation, Savya Pharmaceuticals, Aries Drugs) owned and spearheaded by Mr. Surender Singh Basera.
 
 ---
 
@@ -53,7 +53,7 @@ All entities operate under the unified ownership and leadership of **Mr. Surende
   - Dermaceuticals & Topicals (Biowil Formulation plant for creams, ointments, lotions, soaps).
   - Liquid Orals (Syrups & suspensions via Aries Drugs facility).
 - **Interactive RFQ / Quote Calculator & B2B Lead Form.**
-- **Group Ecosystem Overview:** Showcases Biowil Formulation, Saavya, Biocuree, and Aries Drugs with links to `founder.html`.
+- **Group Ecosystem Overview:** Showcases Biowil Formulation, Savya, Biocuree, and Aries Drugs with links to `founder.html`.
 - **Certifications & Compliance:** GMP, ISO, GLP, Schedule M adherence.
 - **Note on Reviews:** The customer reviews/testimonials section was completely removed as per client request.
 
@@ -99,7 +99,7 @@ All entities operate under the unified ownership and leadership of **Mr. Surende
    - Preserved both Will Healthcare and Biowil Formulation logos in the footer section.
 2. **Founder & Group Separation:**
    - Moved founder details and company group portfolio to standalone `founder.html`.
-   - Explicitly listed all 5 businesses: Will Healthcare, Biowil Formulation, Saavya Pharmaceuticals, Biocuree Pharmaceuticals, Aries Drugs.
+   - Explicitly listed all 5 businesses: Will Healthcare, Biowil Formulation, Savya Pharmaceuticals, Biocuree Pharmaceuticals, Aries Drugs.
 3. **PCD Franchise Separation:**
    - Created standalone `pcd-franchise.html` for PCD distributors, decoupling it from the third-party manufacturing home page.
 4. **Homepage Clean-up:**
