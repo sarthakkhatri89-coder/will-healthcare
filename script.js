@@ -696,7 +696,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Trigger actual PDF download automatically
             const downloadTrigger = document.createElement('a');
-            downloadTrigger.href = 'Will_Healthcare_Product_Catalog.pdf';
+            downloadTrigger.href = 'output/pdf/Will_Healthcare_Product_Catalog.pdf';
             downloadTrigger.download = 'Will_Healthcare_Product_Catalog.pdf';
             document.body.appendChild(downloadTrigger);
             downloadTrigger.click();

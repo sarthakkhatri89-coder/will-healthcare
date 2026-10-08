@@ -11,6 +11,7 @@ build/
 *.zip
 products_raw/
 scratch/
+tmp/
 *.tmp
 *.log
 
