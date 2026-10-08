@@ -408,7 +408,7 @@ def build_pdf(master: list[dict], output_pdf: Path, assets_dir: Path) -> None:
     story.append(Paragraph("PCD FRANCHISE & DISTRICT MONOPOLY OPPORTUNITIES", st["subtitle"]))
     story.append(Spacer(1, 4 * mm))
     story.append(Paragraph(
-        "11, Lane No. 7, Bharuwala Colony, Clement Town, Dehradun, Bharu Wala Grant, Uttarakhand 248002<br/>"
+        "Will House, Lane Number 11, Clement Town, Dehradun, Uttarakhand 248002<br/>"
         "Phone: +91 79068 85742 &nbsp;&nbsp;|&nbsp;&nbsp; Email: willhealthcare84@gmail.com",
         ParagraphStyle("CoverContact", parent=st["small"], alignment=TA_CENTER, leading=12),
     ))
@@ -474,7 +474,7 @@ def build_pdf(master: list[dict], output_pdf: Path, assets_dir: Path) -> None:
     contact = Table([
         [Paragraph("CORPORATE OFFICE", st["h2_white"]), Paragraph("CONTACT", st["h2_white"])],
         [
-            Paragraph("11, Lane No. 7, Bharuwala Colony, Clement Town, Dehradun, Bharu Wala Grant, Uttarakhand 248002", st["body"]),
+            Paragraph("Will House, Lane Number 11, Clement Town, Dehradun, Uttarakhand 248002", st["body"]),
             Paragraph("Phone / WhatsApp: +91 79068 85742<br/>Email: willhealthcare84@gmail.com<br/>Web: www.willhealthcare.in", st["body"]),
         ],
     ], colWidths=[90 * mm, 86 * mm])
