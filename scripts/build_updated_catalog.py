@@ -118,31 +118,29 @@ def manufacturer(section: str) -> str:
     return "Aries Drugs Pvt. Ltd."
 
 
-def default_image(category: str) -> str:
-    return {
-        "tablets": "products/mockup_wilace_sp.jpg",
-        "capsules": "products/product_41.jpeg",
-        "syrups": "products/mockup_wilcof_d.jpg",
-        "gels": "products/product_08.jpeg",
-        "lotions": "products/product_01.jpeg",
-        "soaps": "products/product_02.jpeg",
-        "serums": "products/mockup_hair_serum.jpg",
-        "powders": "products/product_12.jpeg",
-        "nutraceuticals": "products/mockup_prewil_syrup.jpg",
-        "ayurvedic": "products/product_37.jpeg",
-        "creams": "products/mockup_supergm_cream.jpg",
-    }[category]
-
-
 def web_products(master: list[dict], old_products: list[dict]) -> list[dict]:
     old_by_key = {normalize_name(p["name"]): p for p in old_products}
-    preferred_images = {
-        "supergm": "products/mockup_supergm_cream.jpg",
-        "acegshampoo": "products/mockup_aceg_shampoo.jpg",
-        "v50sunscreenlotion": "products/mockup_v50_sunscreen.jpg",
-        "hairgrowthserum": "products/mockup_hair_serum.jpg",
-        "wilcofd": "products/mockup_wilcof_d.jpg",
-        "wilacesp": "products/mockup_wilace_sp.jpg",
+    verified_images = {
+        "Prin-G Lotion": "products/product_04.jpeg",
+        "Prin-G Soap": "products/product_02.jpeg",
+        "W-Bact Ointment": "products/product_07.jpeg",
+        "Super-GM": "products/mockup_supergm_cream.jpg",
+        "Ace-G Shampoo": "products/mockup_aceg_shampoo.jpg",
+        "V-50 Sunscreen Lotion": "products/mockup_v50_sunscreen.jpg",
+        "Hair Growth Serum": "products/mockup_hair_serum.jpg",
+        "Wilace-SP": "products/mockup_wilace_sp.jpg",
+        "Netika-P": "products/product_35.jpeg",
+        "Wilcal": "products/product_51.jpeg",
+        "Wildex-LB": "products/product_45.jpeg",
+        "Bionerve-Forte": "products/product_28.jpeg",
+        "Wilrab-DSR": "products/product_41.jpeg",
+        "Prefast-DSR": "products/product_18.jpeg",
+        "Prewil": "products/product_19.jpeg",
+        "Prewil-OMG": "products/product_20.jpeg",
+        "Wilcof-D": "products/mockup_wilcof_d.jpg",
+        "Wilcof-A": "products/product_08.jpeg",
+        "Wilcof-LS": "products/product_03.jpeg",
+        "PRSM-6 Suspension": "products/product_05.jpeg",
     }
     result = []
     for p in master:
@@ -151,10 +149,9 @@ def web_products(master: list[dict], old_products: list[dict]) -> list[dict]:
         category = web_category(p)
         badge = SECTION_BADGES[p["section"]]
         description = f"{p['composition']} in {p['packing']} commercial packing."
-        image = preferred_images.get(key, default_image(category))
+        image = verified_images.get(p["name"], "")
         mfg = manufacturer(p["section"])
         if previous:
-            image = preferred_images.get(key, previous.get("image", image))
             description = previous.get("description", description)
             mfg = previous.get("manufacturer", mfg)
             badge = previous.get("badge", badge)
@@ -167,6 +164,7 @@ def web_products(master: list[dict], old_products: list[dict]) -> list[dict]:
                 "packing": p["packing"],
                 "badge": badge,
                 "image": image,
+                "imageVerified": bool(image),
                 "description": description,
                 "manufacturer": mfg,
                 "marketer": "Will Healthcare Pvt. Ltd.",

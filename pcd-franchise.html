@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Will Healthcare PCD Pharma Franchise — Exclusive District Monopoly Rights and an updated range of 62 products across Dermatology, Tablets, Capsules, Softgels, Oral Liquids, Nutrition, Personal Care, and Ayush.">
+    <meta name="description" content="Will Healthcare PCD Pharma Franchise — Exclusive District Monopoly Rights and an updated product range across Dermatology, Tablets, Capsules, Softgels, Oral Liquids, Nutrition, Personal Care, and Ayush.">
     <meta name="keywords" content="Will Healthcare PCD Franchise, Pharma Franchise Monopoly, PCD Pharma Products List, Pharma Franchise Company Uttarakhand, Dermatology PCD Franchise, Third Party Manufacturing">
     <title>PCD Pharma Franchise Opportunity &amp; Product Portfolio | Will Healthcare</title>
     
@@ -59,11 +59,11 @@
                     <span class="gradient-text">Product Portfolio</span>
                 </h1>
                 <p class="page-hero-subtitle">
-                    Launch your pharmaceutical distribution enterprise with <strong>Will Healthcare</strong>. Gain exclusive district monopoly rights, high distributor profit margins, free promotional detailing kits, and 62 current formulations backed directly by our owned GMP manufacturing plants.
+                    Launch your pharmaceutical distribution enterprise with <strong>Will Healthcare</strong>. Gain exclusive district monopoly rights, high distributor profit margins, free promotional detailing kits, and a current product range backed directly by our owned GMP manufacturing plants.
                 </p>
                 <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
                     <a href="#productsSection" class="btn btn-primary">
-                        <span>Browse 62 Products</span>
+                        <span>Browse Products</span>
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
                     </a>
                     <a href="#pcdFormSection" class="btn btn-secondary">
@@ -113,7 +113,7 @@
             <div class="section-header" style="margin-bottom: 36px;">
                 <span class="section-tag">Will Healthcare Catalog</span>
                 <h2 class="section-title">Commercially Active <span class="gradient-text">Formulations</span></h2>
-                <p class="section-desc">Explore our updated 62-product portfolio across Dermatology, Tablets, Capsules, Softgels, Oral Liquids, Nutrition, Personal Care, and Ayush.</p>
+                <p class="section-desc">Explore our updated product portfolio across Dermatology, Tablets, Capsules, Softgels, Oral Liquids, Nutrition, Personal Care, and Ayush.</p>
             </div>
 
             <!-- Toolbar: Search & Category Filter -->
@@ -124,7 +124,7 @@
                 </div>
 
                 <div class="pcd-category-tabs" id="pcdCategoryTabs">
-                    <button class="pcd-tab-btn active" data-category="all">All Products (62)</button>
+                    <button class="pcd-tab-btn active" data-category="all">All Products</button>
                     <button class="pcd-tab-btn" data-category="tablets">Tablets</button>
                     <button class="pcd-tab-btn" data-category="capsules">Capsules &amp; Softgel</button>
                     <button class="pcd-tab-btn" data-category="creams">Creams &amp; Ointments</button>
@@ -141,7 +141,6 @@
 
             <!-- Results Counter -->
             <div class="pcd-results-counter">
-                <span>Showing <strong id="pcdProductCount">62</strong> Will Healthcare products</span>
                 <span id="pcdFilterActiveLabel" style="color: var(--purple); font-weight: 600;">Category: All Products</span>
             </div>
 
@@ -156,7 +155,7 @@
                     <span class="catalog-feature-badge">📄 Official 2026 Price List &amp; Portfolio</span>
                     <h3 class="catalog-feature-title">Looking for the Complete Product Catalog with Packing &amp; MRPs?</h3>
                     <p class="catalog-feature-desc">
-                        Download our updated PDF catalog containing all 62 products with compositions, pack information, franchise guidance, and current contact details.
+                        Download our updated PDF catalog containing product compositions, pack information, franchise guidance, and current contact details.
                     </p>
                     <a href="output/pdf/Will_Healthcare_Product_Catalog.pdf" download class="btn btn-primary" style="background: #FFFFFF; color: var(--purple); font-weight: 800; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
@@ -348,7 +347,6 @@
         // Dedicated PCD Franchise Page Logic
         document.addEventListener('DOMContentLoaded', function() {
             const grid = document.getElementById('pcdProductsGrid');
-            const countEl = document.getElementById('pcdProductCount');
             const activeLabelEl = document.getElementById('pcdFilterActiveLabel');
             const searchInput = document.getElementById('pcdSearchInput');
             const tabButtons = document.querySelectorAll('.pcd-tab-btn');
@@ -373,14 +371,12 @@
                     return matchCategory && matchSearch;
                 });
 
-                if (countEl) countEl.textContent = filtered.length;
-
                 if (filtered.length === 0) {
                     grid.innerHTML = `
                         <div style="grid-column: 1 / -1; text-align: center; padding: 60px 20px; background: #fff; border-radius: 16px; border: 1px solid var(--border-light);">
                             <div style="font-size: 3rem; margin-bottom: 12px;">🔍</div>
                             <h3 style="font-family: var(--font-heading); margin-bottom: 8px;">No formulations matched your query</h3>
-                            <p style="color: var(--text-secondary); max-width: 500px; margin: 0 auto 20px;">Try adjusting your search terms or view all categories in our current 62-product range.</p>
+                            <p style="color: var(--text-secondary); max-width: 500px; margin: 0 auto 20px;">Try adjusting your search terms or view all categories in our current product range.</p>
                             <button class="btn btn-secondary" onclick="document.getElementById('pcdSearchInput').value=''; document.querySelector('.pcd-tab-btn[data-category=all]').click();">Reset Filters</button>
                         </div>
                     `;
@@ -391,7 +387,15 @@
                     <div class="pcd-product-card" data-category="${p.category}" id="card-${p.id}">
                         <div class="pcd-product-badge">${p.badge}</div>
                         <div class="pcd-card-img-wrap">
-                            <img src="${p.image}" alt="${p.name} - ${p.composition}" loading="lazy" class="pcd-card-img" onerror="this.src='products/mockup_supergm_cream.jpg'">
+                            ${p.imageVerified && p.image ? `
+                                <img src="${p.image}" alt="${p.name} product pack" loading="lazy" class="pcd-card-img">
+                            ` : `
+                                <div class="pcd-card-img-placeholder" aria-label="Product image unavailable for ${p.name}">
+                                    <img src="will_logo_transparent.png" alt="" class="pcd-card-placeholder-logo">
+                                    <strong>${p.name}</strong>
+                                    <span>Product image coming soon</span>
+                                </div>
+                            `}
                         </div>
                         <div class="pcd-card-content">
                             <h4 class="pcd-card-name">${p.name}</h4>

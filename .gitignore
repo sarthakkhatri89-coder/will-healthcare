@@ -1,6 +1,7 @@
 # Node & Dependencies
 node_modules/
 .pnpm-store/
+__pycache__/
 
 # Build & Deploy
 .vercel/
