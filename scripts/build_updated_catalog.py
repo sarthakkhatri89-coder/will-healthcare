@@ -473,7 +473,7 @@ def build_pdf(master: list[dict], output_pdf: Path, assets_dir: Path) -> None:
         [Paragraph("CORPORATE OFFICE", st["h2_white"]), Paragraph("CONTACT", st["h2_white"])],
         [
             Paragraph("Will House, Lane Number 11, Clement Town, Dehradun, Uttarakhand 248002", st["body"]),
-            Paragraph("Phone / WhatsApp: +91 79068 85742<br/>Email: willhealthcare84@gmail.com<br/>Web: www.willhealthcare.in", st["body"]),
+            Paragraph("Phone / WhatsApp: +91 79068 85742<br/>Email: willhealthcare84@gmail.com<br/>Web: www.will.org.in", st["body"]),
         ],
     ], colWidths=[90 * mm, 86 * mm])
     contact.setStyle(TableStyle([
